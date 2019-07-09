@@ -1,17 +1,46 @@
-<% @words.each do |word| %>
-  <div class="card">
-    <div class="word">
-      Word: <%= word %>
+<%= flash.alert %>
+<div class="word-form">
+  <%= form_for @word, url: { action: "create" } do |f| %>
+    <div>
+      <%= f.label :word %>
+      <%= f.text_field :name %>
     </div>
-    <div class="part-of-speech">
-      Part of Speech: <%= word.part_of_speech %>
+    <div>
+      <%= f.label :part_of_speech %>
+      <%= f.select :part_of_speech, Word::PARTS_OF_SPEECH %>
     </div>
-    <div class="meaning">
-      Meaning: <%= word.translation %>
+    <div>
+      <%= f.label :translation %>
+      <%= f.text_field :translation %>
     </div>
-    <div class="language">
-      <%= word.language %>
+    <div>
+      <%= f.label :language %>
+      <%= f.select :language_id, @languages %>
     </div>
-    
-  </div>
-<% end %>
+    <%= f.submit :save %>
+  <% end %>
+</div>
+
+<div class="word-container">
+  <% @words.each do |word| %>
+    <div class="card">
+      <div class="word">
+        <%= word %>
+      </div>
+      <div class="part-of-speech">
+        <%= word.part_of_speech %>
+      </div>
+      <div class="meaning">
+        <%= word.translation %>
+      </div>
+      <div class="language">
+        <%= word.language %>
+      </div>
+      
+    </div>
+  <% end %>
+</div>
+
+<button class="start-test">
+  <%= link_to "Run a test", "/" %>
+</button>

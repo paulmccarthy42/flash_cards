@@ -1,6 +1,22 @@
 .card {
 	border: 1px solid black;
-	width: 20%;
-	float: left;
-	margin-right: 5%;
+	width: 250px;
+	margin: 5px;
+	padding: 3px;
+}
+
+.word-form {
+	border: 1px solid black;
+	margin-bottom: 5px;
+}
+
+.word-container {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.word {
+	text-align: center;
+	font-weight: bold;
 }

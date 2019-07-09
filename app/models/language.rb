@@ -15,4 +15,8 @@ class Language < ActiveRecord::Base
   def to_s
     name
   end
+
+  def self.options
+    all.map {|x| [x.name, x.id]}
+  end
 end
