@@ -1,0 +1,17 @@
+<% @words.each do |word| %>
+  <div class="card">
+    <div class="word">
+      Word: <%= word %>
+    </div>
+    <div class="part-of-speech">
+      Part of Speech: <%= word.part_of_speech %>
+    </div>
+    <div class="meaning">
+      Meaning: <%= word.translation %>
+    </div>
+    <div class="language">
+      <%= word.language %>
+    </div>
+    
+  </div>
+<% end %>

@@ -12,5 +12,12 @@
 #
 
 class Word < ActiveRecord::Base
+  PARTS_OF_SPEECH = %w(Noun Verb Adjective Adverb).freeze
+  validates :name, presence: true, uniqueness: true
+  validates :part_of_speech, presence: true, inclusion: {in: PARTS_OF_SPEECH}
   belongs_to :language
+
+  def to_s
+    name
+  end
 end
