@@ -5,6 +5,12 @@ const pubRoot = '/assets/webpack/';
 
 module.exports = {
   mode: 'production',
+  devtool: 'source-map',
+  watch: true,
+  watchOptions: {
+    poll: true,
+    ignored: /node_modules/,
+  },
   entry: {
     testApp: [
       path.join(appRoot, './testApp/index.js'),
